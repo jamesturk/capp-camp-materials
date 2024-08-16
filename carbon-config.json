@@ -1,0 +1,30 @@
+{
+  "latest-preset": {
+    "paddingVertical": "10px",
+    "paddingHorizontal": "10px",
+    "backgroundImage": null,
+    "backgroundImageSelection": null,
+    "backgroundMode": "color",
+    "backgroundColor": "#880000",
+    "dropShadow": true,
+    "dropShadowOffsetY": "20px",
+    "dropShadowBlurRadius": "68px",
+    "theme": "solarized light",
+    "windowTheme": "none",
+    "language": "application/x-sh",
+    "fontFamily": "Ubuntu Mono",
+    "fontSize": "17px",
+    "lineHeight": "133%",
+    "windowControls": false,
+    "widthAdjustment": true,
+    "lineNumbers": false,
+    "firstLineNumber": 1,
+    "exportSize": "3x",
+    "watermark": false,
+    "squaredImage": false,
+    "hiddenCharacters": false,
+    "name": "",
+    "width": "900",
+    "highlights": null
+  }
+}
