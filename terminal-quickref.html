@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linux Terminal Basics</title>
+    <style>
+      /* Basic layout setup */
+      body {
+        margin: 0;
+        font-family: Ubuntu, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        margin: 1em;
+      }
+
+      .column {
+        width: 48%;
+        box-sizing: border-box;
+      }
+
+      .box {
+        margin-bottom: 20px;
+        border: 1px solid #6c71c4;
+        border-radius: 4px;
+      }
+
+      .header {
+        background-color: #6c71c4;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .content {
+        padding: 10px;
+      }
+
+      code {
+        background-color: #fdf6e3;
+        color: #073642;
+        font-weight: bold;
+      }
+
+      pre {
+        background-color: #fdf6e3;
+        color: #073642;
+        padding: 0.5em 0.5em;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+      tr {
+        border-bottom: 1px solid #6c71c4;
+      }
+      tr:nth-child(odd) {
+        background-color: #fdf6e3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="column">
+        <div class="box">
+          <div class="header">Viewing Directories</div>
+          <div class="content">
+            <code>pwd</code>
+            prints the "working directory" or your current location in the
+            filesystem.
+            <pre>
+$ pwd
+/home/james</pre
+            >
+
+            <hr />
+
+            <code>ls</code> lists the contents of a directory. If no arguments
+            are given, it will list the current directory's contents.
+            <pre>
+$ ls
+code/ courses/ hello.txt</pre
+            >
+          </div>
+        </div>
+        <div class="box">
+          <div class="header">Navigation</div>
+          <div class="content">
+            <code>cd</code> allows you to change your current directory. It is
+            typically used with an <em>argument</em>, either the directory name
+            to be navigated to, or one of the following:
+
+            <pre>
+# navigate to {dirname}
+$ cd {dirname}     
+
+# without an argument, will navigate to home
+$ cd
+# can also use tilde (~)
+$ cd ~
+
+# with a dash (-), go back to prior directory
+$ cd -
+
+# two periods (..) means up or parent directory
+$ cd ..
+
+# you can use these as part of paths as well
+$ cd ../courses/30121 </pre
+            >
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="header">Viewing & Editing Files</div>
+          <div class="content">
+            <code>cat</code> lists the contents of a file directly to the
+            terminal.
+            <pre>
+$ cat file.txt
+This is the text within file.txt. </pre
+            >
+
+            <hr />
+
+            <code>code</code> will open the given file or directory in VS Code.
+            <pre>
+$ code hello.py
+$ code homework1 </pre
+            >
+
+            <hr />
+
+            <code>less</code> will allow you to view longer files that would
+            require scrolling to view.
+            <pre> $ less longer-file.txt</pre>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="header">Making Directories</div>
+          <div class="content">
+            <code>mkdir</code> creates a new empty directory.
+
+            <pre>$ mkdir newdir</pre>
+
+            If you want to create several nested directories at once, you can
+            pass <code>-p</code> before the target name and all intermediate
+            directories will be created as needed.
+
+            <pre>mkdir -p courses/2025/capp30122</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="box">
+          <div class="header">Copying & Moving Files</div>
+          <div class="content">
+            <code>cp {source} {destination}</code> copies a file from {source}
+            to {destination}.
+
+            <pre>$ cp hello.txt copy.txt</pre>
+
+            <hr />
+
+            <code>mv {source} {destination}</code> moves a file from {source} to
+            {destination}.
+
+            <ul>
+              <li>If {destination} is a filename, the file will be renamed.</li>
+              <li>
+                If {destination} is a directory, the file will be moved there.
+              </li>
+            </ul>
+
+            <pre>
+# renames file
+$ mv notes.txt old-notes.txt
+
+# moves file into archive directory
+$ mv old-notes.txt archive/
+            </pre>
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="header">Removing Files and Directories</div>
+          <div class="content">
+            <code>rm</code> removes files.
+            <pre>$ rm unused.txt</pre>
+
+            <code>rm -r</code> will remove a directory and all contents
+            <em>recursively</em>.
+            <pre>$ rm -f failed-experiment</pre>
+
+            <strong>Remember:</strong> there is no undo, so be extremely
+            careful, especially with <code>rm -r</code>.
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="header">Keyboard Shortcuts</div>
+          <div class="content">
+            <table>
+              <tr>
+                <td>TAB</td>
+                <td>Complete current word being typed.</td>
+              </tr>
+              <tr>
+                <td>Ctrl-P or Up Arrow</td>
+                <td>Scroll back in command history.</td>
+              </tr>
+              <tr>
+                <td>Ctrl-N or Down Arrow</td>
+                <td>Scroll forward in command history.</td>
+              </tr>
+              <tr>
+                <td>Ctrl-A</td>
+                <td>Move cursor to beginning of line.</td>
+              </tr>
+              <tr>
+                <td>Ctrl-E</td>
+                <td>Move cursor to end of line.</td>
+              </tr>
+              <tr>
+                <td>Ctrl-U</td>
+                <td>Clear prompt to beginning of line.</td>
+              </tr>
+              <tr>
+                <td>Ctrl-K</td>
+                <td>Clear prompt to end of line.</td>
+              </tr>
+              <tr>
+                <td>Ctrl-L</td>
+                <td>Clear prompt of all output.</td>
+              </tr>
+              <tr>
+                <td>Ctrl-C</td>
+                <td>Interrupt/stop currently running command.</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
