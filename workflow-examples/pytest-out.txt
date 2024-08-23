@@ -1,0 +1,27 @@
+$ pytest
+============================= test session starts ==============================
+platform linux -- Python 3.10.14, pytest-8.3.2, pluggy-1.5.0
+rootdir: /home/james/uchicago/capp-camp/capp-camp-materials/workflow-examples
+collected 3 items
+
+pytest_example.py ..F                                                    [100%]
+
+=================================== FAILURES ===================================
+______________________________ test_cube_bad_test ______________________________
+
+    def test_cube_bad_test():
+>       assert cube("three") == "twenty-seven"
+
+pytest_example.py:16: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+num = 'three'
+
+    def cube(num):
+>       return num * num * num
+E       TypeError: can't multiply sequence by non-int of type 'str'
+
+example2.py:3: TypeError
+=========================== short test summary info ============================
+FAILED pytest_example.py::test_cube_bad_test - TypeError: can't multiply sequ...
+========================= 1 failed, 2 passed in 0.05s ==========================

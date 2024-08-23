@@ -1,0 +1,5 @@
+$ python3 example4.py
+  File "examples/example4.py", line 6
+    if letter in vowels:
+    ^
+IndentationError: expected an indented block after 'for' statement on line 5

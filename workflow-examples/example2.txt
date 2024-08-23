@@ -1,0 +1,8 @@
+$ python3 example2.py
+number = 42
+Traceback (most recent call last):
+  File "examples/example2.py", line 8, in <module>
+    print("cubed = ", cube(number))
+  File "examples/example2.py", line 3, in cube
+    return num * num * num
+NameError: name 'num' is not defined. Did you mean: 'sum'?

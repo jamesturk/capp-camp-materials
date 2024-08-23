@@ -1,0 +1,5 @@
+$ python3 example1.py
+File "examples/example1.py", line 2
+    print("Hello CAPP!)
+          ^
+SyntaxError: unterminated string literal (detected at line 2)
