@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git Basics</title>
+    <style>
+      /* Basic layout setup */
+      body {
+        margin: 0;
+        font-family: Ubuntu, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-between;
+        margin: 1em;
+      }
+
+      .column {
+        width: 48%;
+        box-sizing: border-box;
+      }
+
+      .box {
+        margin-bottom: 20px;
+        border: 1px solid #6c71c4;
+        border-radius: 4px;
+      }
+
+      .header {
+        background-color: #6c71c4;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .content {
+        padding: 10px;
+      }
+
+      code {
+        background-color: #fdf6e3;
+        color: #073642;
+        font-weight: bold;
+      }
+
+      pre {
+        background-color: #fdf6e3;
+        color: #073642;
+        padding: 0.5em 0.5em;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+      tr {
+        border-bottom: 1px solid #6c71c4;
+      }
+      tr:nth-child(odd) {
+        background-color: #fdf6e3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="column">
+        <div class="box">
+          <div class="header">Key Concepts</div>
+          <div class="content">
+            <dl>
+              <dt>repository</dt>
+              <dd>
+                A collection of files and their combined version history.
+                Typically one repository per project. Created with
+                <code>git init</code>, or checked out with
+                <code>git clone</code>.
+              </dd>
+              <dt>commit</dt>
+              <dd>
+                A collection of related changes to a repository, as made by
+                <code>git commit</code>.
+              </dd>
+              <dt>staging area</dt>
+              <dd>
+                Also referred to as the <em>index</em>, a set of uncommitted
+                changes a repository. Managed with <code>git add/restore</code>.
+              </dd>
+              <dt>remote</dt>
+              <dd>
+                A copy of your git repository that has been <em>pushed</em> to
+                another server. e.g. GitHub. Managed with
+                <code>git remote/push/pull</code>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="box">
+          <div class="header">Getting Started</div>
+          <div class="content">
+            <code>git init</code> creates a new git repository from a directory
+            of untracked files. (You will still need to use
+            <code>git add</code> to add the files you wish to track.)
+            <hr />
+            <code>git clone</code> clones a remote repository to your local
+            machine.
+            <pre>git clone git@github.com:capp-camp/quickrefs.git</pre>
+          </div>
+        </div>
+        <div class="box">
+          <div class="header">Making Local Commits</div>
+          <div class="content">
+            <code>git add {files}</code> adds one or more files to the
+            <em>staging area</em>, to be included in next commit.
+            <hr />
+            <code>git status</code> prints the status of your current
+            repository, including what files are modified, and what is already
+            staged using <code>git add</code> for the next commit.
+            <hr />
+            <code>git restore {files}</code> restores changed files to their
+            prior version.
+            <strong
+              >This is a destructive command and you can lose uncommitted
+              work.</strong
+            >
+            <hr />
+            <code>git commit -m {message}</code> creates a new commit with all
+            files currently in staging area. A message should be passed to
+            indicate the nature of the changes.
+            <hr />
+            <strong>Example:</strong>
+            <pre>
+$ code part1.py     # make edits to part1.py as needed
+$ git add part1.py  # adds part1.py to staging area
+$ code part2.py     # make edits to part2.py (unwanted)
+$ git restore part2.py   # revert part2.py changes
+$ git status        # check on status of staging area
+$ git commit -m "add solution for part 1"
+            </pre>
+          </div>
+        </div>
+        </div>
+
+      <div class="column">
+
+        <div class="box">
+          <div class="header">Working With Remotes</div>
+          <div class="content">
+            <code>git push</code> sends local commits (but not staged/unstaged
+            changes!) to remote server.
+            <hr />
+            <code>git pull</code> gets commits from remote server and updates
+            local copy.
+            <hr>
+            <code>git remote -v</code> shows what remote(s) are configured for this repository.
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="header">Viewing Changes</div>
+          <div class="content">
+            <code>git diff</code> can be used to view changes between different revisions.
+            There are <strong>a lot</strong> of different options, use <code>tldr git diff</code> or <code>git diff --help</code>
+            to see more examples.
+            <hr>
+            <strong>Common usage:</strong><br>
+            <code>git diff</code> with no arguments will show <em>unstaged</em> changes.
+            <br><br>
+            <code>git diff {filename}</code> will show <em>unstaged</em> changes to a given file.
+            <br><br>
+            <code>git diff --staged</code> will show <em>staged but uncommitted</em> changes.
+            <br><br>
+            <code>git diff --summary {commit}</code> will show a summary of changes since a given commit.
+            Substitute a commit ID from <code>git log</code> for <code>{commit}</code>.
+            <hr>
+            <code>git log</code> will give a list of all commits:
+            <pre>
+$ git log
+commit 878b2c740f3481ddcfc8a5b35e53830cab69e5bb (HEAD -> main)
+Author: James Turk <dev@jpt.sh>
+Date:   Fri Aug 23 15:01:41 2024 -0400
+
+    generate more example images
+
+commit 8707cb5c808c949846112c4ca300c6ccdb04786e
+Author: James Turk <dev@jpt.sh>
+Date:   Tue Aug 20 15:29:38 2024 -0400
+
+    update readme
+
+commit b692490a41489f3e79b05b086ecf6cc01f5ced5a
+Author: James Turk <dev@jpt.sh>
+Date:   Tue Aug 20 15:24:31 2024 -0400
+
+    add casts</pre>
+
+      These long ids <code>b692490a41489f3e79b05b086ecf6cc01f5ced5a</code> can be used with many git commands.
+            You can use the first 4-5 characters instead of typing out the entire thing.  e.g. <code>git diff --summary b692</code>
+          </div>
+        </div>
+
+      </div>
+  </body>
+</html>
