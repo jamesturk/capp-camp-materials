@@ -54,9 +54,12 @@
 
       table {
         border-collapse: collapse;
+        break-inside: avoid;
+        break-before:;
       }
       tr {
         border-bottom: 1px solid #6c71c4;
+        break-inside: avoid;
       }
       tr:nth-child(odd) {
         background-color: #fdf6e3;
@@ -95,8 +98,8 @@ code/ courses/ hello.txt</pre
             to be navigated to, or one of the following:
 
             <pre>
-# navigate to {dirname}
-$ cd {dirname}     
+# navigate to &lt;dirname&gt;
+$ cd &lt;dirname&gt;     
 
 # without an argument, will navigate to home
 $ cd
@@ -161,20 +164,23 @@ $ code homework1 </pre
         <div class="box">
           <div class="header">Copying & Moving Files</div>
           <div class="content">
-            <code>cp {source} {destination}</code> copies a file from {source}
-            to {destination}.
+            <code>cp &lt;source&gt; &lt;destination&gt;</code> copies a file
+            from &lt;source&gt; to &lt;destination&gt;.
 
             <pre>$ cp hello.txt copy.txt</pre>
 
             <hr />
 
-            <code>mv {source} {destination}</code> moves a file from {source} to
-            {destination}.
+            <code>mv &lt;source&gt; &lt;destination&gt;</code> moves a file from
+            &lt;source&gt; to &lt;destination&gt;.
 
             <ul>
-              <li>If {destination} is a filename, the file will be renamed.</li>
               <li>
-                If {destination} is a directory, the file will be moved there.
+                If &lt;destination&gt; is a filename, the file will be renamed.
+              </li>
+              <li>
+                If &lt;destination&gt; is a directory, the file will be moved
+                there.
               </li>
             </ul>
 
@@ -201,6 +207,7 @@ $ mv old-notes.txt archive/
             <strong>Remember:</strong> there is no undo, so be extremely
             careful, especially with <code>rm -r</code>.
           </div>
+          <div id="page-breaker"><br /><br />&nbsp;</div>
         </div>
 
         <div class="box">
