@@ -106,8 +106,34 @@
             <code>git clone</code> clones a remote repository to your local
             machine.
             <pre>git clone git@github.com:capp-camp/quickrefs.git</pre>
+            <p><strong>Note:</strong>You will only need to do one of these, depending on if you are starting from scratch or a repository that's already been initialized.</p>
           </div>
         </div>
+
+        <div id="page-breaker"><br /><br /><br /><br /><br /><br />&nbsp;</div>
+        <div class="box">
+          <div class="header">Viewing Changes</div>
+          <div class="content">
+            <code>git diff</code> can be used to view changes between different revisions.
+            There are <strong>a lot</strong> of different options, use <code>tldr git diff</code> or <code>git diff --help</code>
+            to see more examples.
+            <hr>
+            <strong>Common usage:</strong><br>
+            <code>git diff</code> with no arguments will show <em>unstaged</em> changes.
+            <br><br>
+            <code>git diff {filename}</code> will show <em>unstaged</em> changes to a given file.
+            <br><br>
+            <code>git diff --staged</code> will show <em>staged but uncommitted</em> changes.
+            <br><br>
+            <code>git diff --summary {commit}</code> will show a summary of changes since a given commit.
+            Substitute a commit ID from <code>git log</code> for <code>{commit}</code>.
+            <hr>
+            </div>
+          </div>
+
+        </div>
+
+      <div class="column">
         <div class="box">
           <div class="header">Making Local Commits</div>
           <div class="content">
@@ -139,10 +165,8 @@ $ git status        # check on status of staging area
 $ git commit -m "add solution for part 1"
             </pre>
           </div>
-        </div>
-        </div>
+          </div>
 
-      <div class="column">
 
         <div class="box">
           <div class="header">Working With Remotes</div>
@@ -158,22 +182,8 @@ $ git commit -m "add solution for part 1"
         </div>
 
         <div class="box">
-          <div class="header">Viewing Changes</div>
+          <div class="header">Viewing Logs</div>
           <div class="content">
-            <code>git diff</code> can be used to view changes between different revisions.
-            There are <strong>a lot</strong> of different options, use <code>tldr git diff</code> or <code>git diff --help</code>
-            to see more examples.
-            <hr>
-            <strong>Common usage:</strong><br>
-            <code>git diff</code> with no arguments will show <em>unstaged</em> changes.
-            <br><br>
-            <code>git diff {filename}</code> will show <em>unstaged</em> changes to a given file.
-            <br><br>
-            <code>git diff --staged</code> will show <em>staged but uncommitted</em> changes.
-            <br><br>
-            <code>git diff --summary {commit}</code> will show a summary of changes since a given commit.
-            Substitute a commit ID from <code>git log</code> for <code>{commit}</code>.
-            <hr>
             <code>git log</code> will give a list of all commits:
             <pre>
 $ git log
